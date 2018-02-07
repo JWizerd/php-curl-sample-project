@@ -115,6 +115,22 @@ curl_close($post_handle);
 echo $form_data;
 
 /**
+ * FOR AUTHENTICATION set the following options. 
+ * Take note of the username:password option 
+ * (looks like this is what estatesales.org was referring to in their request)
+ */
+
+curl_setopt_array($handle,
+  array(
+    CURLOPT_URL => $url,
+    CURLOPT_HTTPAUTH => CURLAUTH_ANY,
+    CURLOPT_USERPWD  => "$username:$password",
+    CURLOPT_RETURNTRANSFER   => true,
+  )
+);
+
+
+/**
  * For a more readable object oriented workflow use Guzzle
  * src: https://packagist.org/packages/guzzlehttp/guzzle
  */
