@@ -103,7 +103,7 @@ curl_setopt_array($post_handle,
     // Enable the post response.
     CURLOPT_POST       => true,
     // The data to transfer with the response.
-    CURLOPT_POSTFIELDS => $postData,
+    CURLOPT_POSTFIELDS => json_encode($postData),
     CURLOPT_RETURNTRANSFER     => true
   )
 );
@@ -113,3 +113,8 @@ $form_data = curl_exec($post_handle);
 curl_close($post_handle);
  
 echo $form_data;
+
+/**
+ * For a more readable object oriented workflow use Guzzle
+ * src: https://packagist.org/packages/guzzlehttp/guzzle
+ */
